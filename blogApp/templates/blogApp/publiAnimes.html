@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% load static %}
+{%block 'titulo'%}Valhalla Publi{%endblock%}
+{%block 'conteudo'%}
+<style>
+    body{
+        background-image: url("{% static 'image/RedTokyo-background.jpg'%}");
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+<form class="publi" method="POST">
+    {%csrf_token%}
+    <div class="publiLeft">
+        <label for="publiNameAnime">Nome</label>
+        <input class="publiName" id="publiNameAnime" type="text">
+        <div class="publiLeftInfo publiLeftInfo1">
+            <div class="label">
+                <label for="publiTemporadas">Temporadas</label>
+                <input id="publiTemporadas" type="number">
+            </div>
+            <div class="label">
+                <label for="publiEpisodios">Episodios</label>
+                <input id="publiEpisodios" type="number">
+            </div>
+        </div>
+        <div class="publiLeftInfo publiLeftInfo2">
+            <div class="label">
+                <label for="publiLançamentoAnime">Lançamento</label>
+                <input class="publiLançamento" id="publiLançamentoAnime" type="date">
+            </div>
+            <div id="labelImage">
+                <label for="labelImage">Imagem</label>
+                <label style="display: flex; justify-content: center; align-items: center;" for="publiImageAnime" class="publiImage">Upload Image</label>
+                <input id="publiImageAnime" type="file" accept="image/png, image/jpeg">
+            </div>
+            
+        </div>
+    </div>
+    <div class="publiRight">
+
+    </div>
+</form>
+
+{%endblock%}

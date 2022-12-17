@@ -3,6 +3,7 @@ from django.http import Http404
 from .models import Animes, Hardware, Jogos
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.contrib import messages
 # Create your views here.
 def home(request):
     return render(request, 'blogApp/home.html')
@@ -96,8 +97,11 @@ def searchJogos(request):
         'jogos': jogos
     })
 
-def publi(request):
-    radioValue = request.GET.get('categoria')
-    return render(request, 'blogApp/publi.html',{
-        'radioValue': radioValue
-    })
+def publiAnimes(request):
+    return render(request, 'blogApp/publiAnimes.html')
+
+def publiHardware(request):
+    return render(request, 'blogApp/publiHardware.html')
+
+def publiJogos(request):
+    return render(request, 'blogApp/publiJogos.html')
